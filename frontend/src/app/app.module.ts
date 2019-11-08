@@ -13,12 +13,17 @@ import {MatButtonModule} from "@angular/material/button";
 import { AddPlayerComponent } from './add-player/add-player.component';
 import {MatCheckboxModule} from "@angular/material/checkbox";
 import {CommonModule} from "@angular/common";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {MatRadioModule} from "@angular/material/radio";
+import {MatIconModule} from "@angular/material/icon";
+import { AddStudentComponent } from './add-student/add-student.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    AddPlayerComponent
+    AddPlayerComponent,
+    AddStudentComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +34,11 @@ import {CommonModule} from "@angular/common";
     MatDialogModule,
     HttpClientModule,
     MatButtonModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    FormsModule,
+    MatRadioModule,
+    MatIconModule,
+    ReactiveFormsModule
   ],
   exports:[
     AddPlayerComponent,

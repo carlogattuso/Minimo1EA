@@ -21,6 +21,6 @@ api.get('/student', studentScript.getStudents);
  */
 api.get('/subject', subjectScript.getSubjects);
 api.post('/subject', subjectScript.addSubject);
-api.post('/subject', subjectScript.addStudentToSubject);
+api.post('/subject/addStudent', subjectScript.addStudentToSubject);
 
 module.exports = api;

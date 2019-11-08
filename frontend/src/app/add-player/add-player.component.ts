@@ -11,17 +11,18 @@ import {Student} from "../models/student";
 export class AddPlayerComponent implements OnInit {
 
   students: Student[];
-  checked: boolean[];
+  checked: boolean[] = [];
 
   constructor(public dialogRef: MatDialogRef<AddPlayerComponent>,
               private schoolService: schoolService) { }
 
   ngOnInit() {
-    //Get all students on the database
     this.schoolService.getStudents().subscribe(students =>{
       this.students=students;
       //Initialize the array of booleans bounded to the corresponding checkboxes
-      this.checked = [].fill(false, 0, this.students.length);
+      this.students.forEach((student, i)=>{
+        this.checked[i] = false;
+      });
     });
   }
 
@@ -31,9 +32,13 @@ export class AddPlayerComponent implements OnInit {
   }
 
   addStudents(){
-    let newStudents: Student[];
+    let newStudents: Student[] = [];
     //Add students to array only if their checkbox is checked
-    this.students.forEach((student, i)=>{if(this.checked[i])newStudents.push(student)});
+    this.students.forEach((student, i)=>{
+      if(this.checked[i]) {
+        newStudents.push(student)
+      }
+      });
     //Return an array of all the students with their checkbox checked
     this.dialogRef.close(newStudents);
   }

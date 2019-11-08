@@ -9,17 +9,31 @@ let Student = mongoose.model('Student');
 let ObjectId = require('mongodb').ObjectID;
 
 exports.addSubject = async function (req, res){
-    let subject = req.body;
+    let subject = new Subject();
+    subject.name = req.body.name;
     let newSubject = new Subject(subject);
     let result = await newSubject.save();
     res.status(200).send(result);
 };
 
 exports.addStudentToSubject = async function (req, res){
-    let subject = req.body.subject;
-    let student = await Student.findOne({name: req.body.student.name});
-    let result = await Subject.updateOne({name: subject.name}, {$push:{students: ObjectId(student._id)}})
-    res.status(200).send(result);
+        let subjectId = req.body.subjectId;
+        let studentId = req.body.studentId;
+        console.log('Subject Id: '+subjectId);
+        console.log('Student Id: '+ studentId);
+
+    let student = await Student.findOne({_id: studentId});
+    if (!student) {
+        return res.status(404).send({message: 'Student not found'})
+    } else {
+        let subjectUpdated = await Subject.findOne({_id: subjectId});
+        if(!subjectUpdated)
+            return res.status(404).send({message: 'Subject not found'});
+        else {
+            await Subject.updateOne({_id: subjectId}, {$addToSet: {students: studentId}})
+        }
+    }
+    return res.status(200).send({message: 'Student added successfully'});
 };
 
 exports.getSubjects = async function (req, res){

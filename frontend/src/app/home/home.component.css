@@ -21,6 +21,10 @@
   margin: 10%;
 }
 
+.margin-top{
+  margin-top: 10%;
+}
+
 .text{
   width: 100%;
   text-align: center;
@@ -46,4 +50,14 @@
 .add-btn{
   width: 100%;
   margin-bottom: 10px;
+}
+#container {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  /* it will calculate automatically, try space-between too */
+}
+
+#container ul {
+  max-width: 50%;
 }

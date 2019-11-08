@@ -23,4 +23,16 @@ export class schoolService {
   getStudents(): Observable<Student[]>{
     return this.http.get<Student[]>(this.url.urlStudent);
   }
+
+  enrollStudent(subjectId, studentId){
+    return this.http.post(this.url.urlSubject+'/addStudent',{subjectId:subjectId,studentId:studentId});
+  }
+
+  addSubject(subject:Subject) {
+    return this.http.post(this.url.urlSubject,subject);
+  }
+
+  addStudent(student:Student) {
+    return this.http.post(this.url.urlSubject,student);
+  }
 }
