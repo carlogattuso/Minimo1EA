@@ -23,9 +23,9 @@
   <div class="column-list">
     <div class="margin-sides">
       <p>Students by titulation</p>
-      <button class="btn btn-primary" type="button" id="studentById" (click)="getByStudies('telematica')">Telemathics</button>
-      <button class="btn btn-primary" type="button" id="studentById" (click)="getByStudies('telecom')">Telecom</button>
-      <button class="btn btn-primary" type="button" id="studentById" (click)="getByStudies('aerospace')">Aerospace</button>
+      <button class="btn btn-primary" type="button" (click)="getByStudies('telematica')">Telemathics</button>
+      <button class="btn btn-primary" type="button" (click)="getByStudies('telecos')">Telecom</button>
+      <button class="btn btn-primary" type="button" (click)="getByStudies('aerospace')">Aerospace</button>
       <mat-card class="mat-card-list">
         <mat-list role="list">
           <mat-list-item *ngFor="let student of students"
@@ -148,6 +148,14 @@
                                class="no-pad"
                                role="listitem">
                   <p class="phones  ">{{phone.key}}: {{phone.value}}</p>
+                </mat-list-item>
+              </div>
+              <div *ngIf="currentStudent">
+                <p>Studies</p>
+                <mat-list-item *ngFor="let studies of currentStudent.studies"
+                               class="no-pad"
+                               role="listitem">
+                  <p class="phones ">{{studies.name}}</p>
                 </mat-list-item>
               </div>
             </div>

@@ -9,7 +9,12 @@ let studentSchema = mongoose.Schema({
     phones: [{
         key: String,
         value: String
-    }]
+    }],
+    studies: [
+        {
+            name: String
+        }
+    ]
 });
 
 /**
