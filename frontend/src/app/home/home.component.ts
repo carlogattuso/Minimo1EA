@@ -22,6 +22,7 @@ export class HomeComponent implements OnInit {
   studentForm: FormGroup;
   subjectName: String;
   student: Student;
+  students: Student[];
   validation_messages: any;
 
 
@@ -121,18 +122,9 @@ export class HomeComponent implements OnInit {
         });
   }
 
-  public addStudent(){
-    console.log(this.student);
-    this.student.phones[0].key = "work";
-    this.schoolService.addStudent(this.student)
-      .subscribe( res => {
-          console.log('Res:'+ res);
-          this.updateInfo();
-        },
-        err => {
-          console.log(err);
-          HomeComponent.handleError(err);
-        });
+  public getByStudies(studies){
+    console.log(studies);
+    this.schoolService.getStudentsByStudies(studies).subscribe(students=>{this.students = students});
   }
 
   private static handleError(err: HttpErrorResponse) {

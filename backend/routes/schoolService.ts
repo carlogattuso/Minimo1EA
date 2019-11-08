@@ -15,6 +15,7 @@ let subjectScript = require('../controllers/subjectScript');
 api.get('/student/:id', studentScript.getStudentById);
 api.post('/student', studentScript.addStudent);
 api.get('/student', studentScript.getStudents);
+api.get('/student/studies/:id', studentScript.getStudentsByStudies);
 
 /**
  * Subjects Service

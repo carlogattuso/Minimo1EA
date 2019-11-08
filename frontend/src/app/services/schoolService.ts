@@ -24,6 +24,10 @@ export class schoolService {
     return this.http.get<Student[]>(this.url.urlStudent);
   }
 
+  getStudentsByStudies(studies): Observable<Student[]>{
+    return this.http.get<Student[]>(this.url.urlStudent+'/studies/'+studies);
+  }
+
   enrollStudent(subjectId, studentId){
     return this.http.post(this.url.urlSubject+'/addStudent',{subjectId:subjectId,studentId:studentId});
   }
@@ -32,7 +36,4 @@ export class schoolService {
     return this.http.post(this.url.urlSubject,subject);
   }
 
-  addStudent(student:Student) {
-    return this.http.post(this.url.urlSubject,student);
-  }
 }

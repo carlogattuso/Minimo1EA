@@ -20,6 +20,14 @@ exports.addStudent = async function (req, res){
     }
 };
 
+exports.getStudentsByStudies = async function (req,res){
+    let s = req.params.id;
+    console.log(s);
+    let students = await Student.find({ name: 'Test' } );
+    console.log('Students: '+students);
+    res.status(200).json(students);
+}
+
 exports.getStudentById = async function (req, res) {
     let s = req.params.id;
     console.log(s);
