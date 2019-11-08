@@ -1,0 +1,8 @@
+# Project exclude paths
+/backend/controllers/studentScript.js
+/backend/controllers/subjectScript.js
+/backend/models/student.js
+/backend/models/subject.js
+/backend/routes/schoolService.js
+/backend/app.js
+/node_modules/

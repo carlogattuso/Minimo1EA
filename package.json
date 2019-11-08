@@ -1,0 +1,20 @@
+{
+  "name": "minimo1ea",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "tsc && node backend/app.js"
+  },
+  "dependencies": {
+    "@angular/cli": "^8.3.18",
+    "body-parser": "^1.19.0",
+    "cors": "latest",
+    "errorhandler": "latest",
+    "express": "^4.17.1",
+    "mongoose": "^5.7.8",
+    "typescript": "^3.6.4"
+  },
+  "devDependencies": {
+    "@types/node": "^12.12.5"
+  }
+}
